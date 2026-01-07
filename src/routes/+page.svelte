@@ -50,7 +50,7 @@
             <a href="https://nixwebr.ing/next/satr14" class="no-underline">&rarr;</a>
         {:else}
             <p class="animate-pulse italic text-base">
-                <span class="hidden sm:block">Press [Enter] to continue.</span>
+                <span class="hidden sm:block">Press [Space] to continue.</span>
                 <span class="sm:hidden">Scroll to continue.</span>
             </p>
         {/if}
@@ -70,8 +70,7 @@
                         <a href={url} target="_blank">{name}</a>
                     {/each}
                 </div>
-                <!-- svelte-ignore a11y-autofocus -->
-                <a href="/#abt" id="abt" class="text-center no-underline text-xl font-extrabold" autofocus>&uarr;</a>
+                <a href="/#abt" id="abt" class="text-center no-underline text-xl font-extrabold">&uarr;</a>
                 <p class="text-center m-0 font-mono italic hidden md:block">curl https://satr14.my.id</p>
             </nav>
         </header>
