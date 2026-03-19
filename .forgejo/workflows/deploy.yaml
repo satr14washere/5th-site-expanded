@@ -21,7 +21,7 @@ jobs:
         run: bun run build
 
       - name: Deploy
-        uses: cloudflare/wrangler-action@v3
+        uses: https://github.com/cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           packageManager: bun
