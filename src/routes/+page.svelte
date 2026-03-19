@@ -99,27 +99,26 @@
                         <span class="bg-ctp-surface0 text-ctp-text px-2 py-1 rounded-full no-underline text-xs sm:text-sm">{skill}</span>
                     {/each}
                 </p>
-                <p class="flex flex-wrap gap-1">
-                    {#each Object.entries(data.links) as [title, url], i}
-                        {#if i > 0}<span class="text-ctp-subtext1">~</span>{/if}
-                        <a href={url} target="_blank">{title}</a>
+                <div class="flex flex-row gap-1">
+                    {#each Object.entries(data.links) as [title, url]}
+                        <a href={url} target="_blank" class="flex items-center justify-between rounded-lg px-2 py-1 hover:bg-ctp-surface0 text-sm">
+                            {title}
+                            <span class="text-ctp-overlay1 text-xs">↗</span>
+                        </a>
                     {/each}
-                </p>
-            </article>
-            <!-- hate optimizing images ;-; -->
-            <section class="flex flex-wrap gap-4 px-4 pb-4">
-                {#each Object.entries(data.communities) as [name,details], i}
-                    <div class="inline-block">
-                        <div class="flex gap-2">
-                            <img src={details.icon} alt={name} class="size-12 rounded-lg">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 py-4">
+                    {#each Object.entries(data.communities) as [name, details]}
+                        <a href={details.url} target="_blank" class="flex items-center gap-3 rounded-lg p-2 hover:bg-ctp-surface0">
+                            <img src={details.icon} alt={name} class="size-9 rounded-lg" />
                             <div>
-                                <h2 class="text-base m-0"><a href={details.url}>{name}</a></h2>
-                                <span>{details.role}</span>
+                                <span class="text-sm block leading-tight text-ctp-text font-bold">{name}</span>
+                                <span class="text-xs text-ctp-subtext0">{details.role}</span>
                             </div>
-                        </div>
-                    </div>
-                {/each}
-            </section>
+                        </a>
+                    {/each}
+                </div>
+            </article>
         </main>
     </div>
 </div>

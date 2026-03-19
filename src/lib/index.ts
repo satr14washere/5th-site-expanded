@@ -189,9 +189,7 @@ export default {
     links: {
         "git": "https://git.satr14.my.id",
         "fetch.sh": "https://fetch.satr14.my.id",
-        "flake.nix": "https://git.satr14.my.id/satr14/nix-flake",
-        "is-a.dev": "https://is-a.dev/",
-        "part-of.my.id": "https://part-of.my.id/",
+        "flake.nix": "https://flake.satr14.my.id",
     },
     communities: {
         "part-of.my.id": {
