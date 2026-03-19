@@ -170,21 +170,28 @@ export function randomStr(length: number): string {
 
 export const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+export const textColors = [
+  'text-ctp-red', 'text-ctp-peach', 'text-ctp-yellow', 'text-ctp-green',
+  'text-ctp-teal', 'text-ctp-blue', 'text-ctp-mauve', 'text-ctp-pink',
+  'text-ctp-lavender', 'text-ctp-sapphire', 'text-ctp-sky',
+];
+
 export default {
     title: "satr14's site",
-    subtitle: "Howdy!",
+    quote: "sometimes you just gotta implement it yourself",
     name: "satr14",
-    legal: "Satria",
+    roles: ["Web Developer", "Sysadmin", "Hobbyist", "Student", "Linux Enthusiast"],
     description: "I'm Satria, Im a self-taught hobbyist web developer and homelaber sysadmin from Indonesia. I've been programming since 2021 and I love spending my free time  working on personal projects and experimenting with new technologies.",
     skills: ["HTML", "CSS", "JavaScript", "Tailwind", "Svelte", "SvelteKit", "TypeScript", "NodeJS", "Express", "PocketBase", "Python", "Linux", "Nginx", "Docker", "Git", "Bash", "Proxmox", "Nix"],
     birthday: [12,6],
     timezone: "Asia/Jakarta",
+    location: "Indonesia",
     links: {
+        "git": "https://git.satr14.my.id",
+        "fetch.sh": "https://fetch.satr14.my.id",
+        "flake.nix": "https://git.satr14.my.id/satr14/nix-flake",
+        "is-a.dev": "https://is-a.dev/",
         "part-of.my.id": "https://part-of.my.id/",
-        "fetch.sh": "https://fetch.satr14.my.id/",
-        "NixOS Flakes": "https://github.com/SX-9/nix-conf",
-        "Forever Maze": "https://forever-maze.satr14.my.id/",
-        "Chess from scratch": "https://sx-9.github.io/chess-from-scratch/",
     },
     communities: {
         "part-of.my.id": {
@@ -199,15 +206,15 @@ export default {
         },
         "Hack Club": {
             icon: "https://assets.hackclub.com/icon-square.png",
-            role: "Member",
+            role: "Former Event Organizer",
             url: "https://hackclub.com/",
         },
     },
     socials: {
-        dc: "https://discord.com/users/882595027132493864",
-        gh: "https://github.com/SX-9",
-        rdt: "https://reddit.com/u/Frequent_Outside_741",
-        stm: "https://steamcommunity.com/id/satr14",
-        mail: "mailto:admin@satr14.my.id",
+        GitHub: "https://github.com/SX-9",
+        Discord: "https://discord.com/users/882595027132493864",
+        Reddit: "https://reddit.com/u/Frequent_Outside_741",
+        Steam: "https://steamcommunity.com/id/satr14",
+        Email: "mailto:admin@satr14.my.id",
     },
 }
