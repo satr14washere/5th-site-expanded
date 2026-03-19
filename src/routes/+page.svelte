@@ -53,7 +53,8 @@
             <a href="https://nixwebr.ing/rand" class="no-underline">?</a>
             <a href="https://nixwebr.ing/next/satr14" class="no-underline">&rarr;</a>
         {:else}
-            <p class="animate-pulse italic text-base">
+            <p class="animate-pulse italic text-base text-center">
+                <span>"{data.quote}"</span><br>
                 <span class="hidden sm:block">Press [Space] to continue.</span>
                 <span class="sm:hidden">Scroll to continue.</span>
             </p>
@@ -61,7 +62,7 @@
     </nav>
 </div>
     
-<div class="h-[calc(100%-8rem)] sm:h-[calc(100%-6rem)]"></div>
+<div class="h-[calc(100%-7rem)] sm:h-[calc(100%-6rem)]"></div>
 
 <div class="backdrop-blur-md backdrop-brightness-75 w-[calc(100%-2rem)] ml-4 pt-4 border-t-2 border-x-2 border-ctp-surface1 hover:border-ctp-sky shadow-inner rounded-t-3xl" transition:fly={{
     duration: 1500, easing: cubicOut, y: 200, opacity: 0,
@@ -71,7 +72,9 @@
             <nav class="overflow-hidden flex flex-col-reverse sm:flex-row justify-center sm:justify-between items-center sm:gap-4 text-lg max-w-full w-full px-4 overflow-y-auto text-nowrap">
                 <div class="flex justify-center gap-4">
                     {#each Object.entries(data.socials) as [name, url]}
-                        <a href={url} target="_blank">{name}</a>
+                        <a href={url} target="_blank">
+                          <img src="https://cdn.simpleicons.org/{name}/cdd6f4" height="16" width="16" alt={name} />
+                        </a>
                     {/each}
                 </div>
                 <a href="/#abt" id="abt" class="text-center no-underline text-xl font-extrabold">&uarr;</a>
@@ -81,7 +84,12 @@
         
         <main>
             <article>
-                <h1>{data.subtitle}</h1>
+                <p class="text-center">
+                  {#each data.roles as role, i}
+                    {i ? " // " : ""}
+                    <b>{role}</b>
+                  {/each}
+                </p>
                 <p>{data.description}</p>
                 <p class="text-sm"><i>
                     It's <b>{time}</b> in <b>{data.timezone}</b>.
@@ -99,7 +107,7 @@
                 </p>
             </article>
             <!-- hate optimizing images ;-; -->
-            <!-- <section class="flex flex-wrap gap-4 px-4 pb-4">
+            <section class="flex flex-wrap gap-4 px-4 pb-4">
                 {#each Object.entries(data.communities) as [name,details], i}
                     <div class="inline-block">
                         <div class="flex gap-2">
@@ -111,7 +119,7 @@
                         </div>
                     </div>
                 {/each}
-            </section> -->
+            </section>
         </main>
     </div>
 </div>
