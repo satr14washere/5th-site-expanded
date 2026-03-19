@@ -37,3 +37,16 @@ table { @apply w-full my-4; }
 thead { @apply bg-ctp-overlay0; }
 tbody { @apply bg-ctp-base text-ctp-subtext0; }
 tr, th, td { @apply p-1 border border-ctp-overlay1; }
+
+@theme {
+  --animate-marquee: marquee 15s linear infinite;
+  --animate-marquee2: marquee2 15s linear infinite;
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+}

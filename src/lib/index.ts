@@ -168,8 +168,6 @@ export function randomStr(length: number): string {
     return result;
 }
 
-export const months = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
 export const textColors = [
   'text-ctp-red', 'text-ctp-peach', 'text-ctp-yellow', 'text-ctp-green',
   'text-ctp-teal', 'text-ctp-blue', 'text-ctp-mauve', 'text-ctp-pink',
@@ -183,7 +181,6 @@ export default {
     roles: ["Web Developer", "Sysadmin", "Hobbyist", "Student"],
     description: "I'm Satria, Im a self-taught hobbyist web developer and homelaber sysadmin from Indonesia. I've been programming since 2021 and I love spending my free time  working on personal projects and experimenting with new technologies.",
     skills: ["HTML", "CSS", "JavaScript", "Tailwind", "Svelte", "SvelteKit", "TypeScript", "NodeJS", "Express", "PocketBase", "Python", "Linux", "Nginx", "Docker", "Git", "Bash", "Proxmox", "Nix"],
-    birthday: [12,6],
     timezone: "Asia/Jakarta",
     location: "Indonesia",
     links: {
@@ -214,5 +211,6 @@ export default {
         discord: "https://discord.com/users/882595027132493864",
         reddit: "https://reddit.com/u/Frequent_Outside_741",
         steam: "https://steamcommunity.com/id/satr14",
+        namemc: "https://namemc.com/profile/satr14.1"
     },
 }

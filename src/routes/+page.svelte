@@ -21,27 +21,99 @@
 
     let { data }: Props = $props();
 
-    let days = $derived(daysUntilBirthday(data.birthday));
     let time = $derived(getTimeIn(data.timezone));
     let charAmount = $state(0);
+
     let webring = $page.url.searchParams.has('webring');
+
+    let audio: HTMLAudioElement;
+    let showNotification = $state(false);
+
+    function playAudio() {
+        if (audio.paused) {
+            audio.volume = 0.5;
+            audio.play().then(() => {
+                showNotification = true;
+                setTimeout(() => showNotification = false, 3000);
+            }).catch(() => {});
+        }
+    }
 
     onMount(() => {
         charAmount = Math.floor(window.innerWidth / 20);
     });
 </script>
 
-<div class="fixed top-0 left-0 w-full h-full -bg-gradient-6 opacity-25 from-ctp-sapphire via-transparent to-ctp-sapphire" transition:fade={{
+<audio bind:this={audio} src="/hk-white-palace-ost.mp3" loop></audio>
+
+{#if showNotification}
+    <div class="z-50 fixed top-6 right-6 left-6 flex justify-center items-center">
+        <div class="flex items-center gap-3 bg-ctp-surface0 text-ctp-text px-4 py-3 rounded-xl shadow-lg" transition:fly={{ y: 20, duration: 300, easing: cubicOut }}>
+            <span class="text-lg">♪</span>
+            <div class="text-sm">
+                <p class="m-0 font-medium">Now Playing</p>
+                <p class="m-0 text-ctp-subtext0 text-xs">White Palace — Hollow Knight OST</p>
+            </div>
+        </div>
+    </div>
+{/if}
+
+<div class="fixed top-0 left-0 w-full h-full animate-[rainbow_20s_linear_infinite,breathing_8s_ease-in-out_infinite]" style="background: linear-gradient(-6deg, hsl(var(--rainbow-hue-bottom), 70%, 60%), transparent, hsl(var(--rainbow-hue-top), 70%, 60%));" transition:fade={{
     duration: 1500, easing: cubicOut
 }}></div>
+
+<svelte:head>
+    <style>
+        @property --rainbow-hue-top {
+            syntax: '<number>';
+            initial-value: 199;
+            inherits: true;
+        }
+        @property --rainbow-hue-bottom {
+            syntax: '<number>';
+            initial-value: 559;
+            inherits: true;
+        }
+        @keyframes rainbow {
+            0% { --rainbow-hue-top: 199; --rainbow-hue-bottom: 559; }
+            100% { --rainbow-hue-top: 559; --rainbow-hue-bottom: 199; }
+        }
+        @keyframes breathing {
+            0%, 100% { opacity: 0.15; }
+            50% { opacity: 0.3; }
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-100%); }
+        }
+        @keyframes marquee2 {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0%); }
+        }
+    </style>
+</svelte:head>
 
 <div class="fixed top-0 left-0 w-full h-full overflow-hidden flex justify-center items-center select-none" transition:blur={{
     duration: 1000, easing: cubicOut,
 }}>
     <div class="font-[Stray,_monospace] group whitespace-nowrap text-center text-5xl my-4 cursor-default -rotate-6 leading-10 text-ctp-overlay1 hover:text-ctp-base">
-        <span class="inline-block animate-scrolling-text-to-l">{randomStr(charAmount)}</span><br>
-        <span class="block">{randomStr(Math.round(charAmount-data.name.length/2))}<a href={'https://github.com/SX-9/5th-site'} target="_blank" class="group-hover:px-8 no-underline text-ctp-subtext1 group-hover:text-ctp-text">{data.name.toUpperCase()}</a>{randomStr(Math.round(charAmount-data.name.length/2))}</span>
-        <span class="inline-block animate-scrolling-text-to-r">{randomStr(charAmount)}</span><br>
+        <div class="inline-flex relative overflow-hidden">
+            <span class="[animation:marquee_10s_linear_infinite] whitespace-nowrap">
+                {randomStr(charAmount)}
+            </span>
+            <span class="absolute top-0 [animation:marquee2_10s_linear_infinite] whitespace-nowrap">
+                {randomStr(charAmount)}
+            </span>
+        </div><br>
+        <span class="block">{randomStr(Math.round(charAmount-data.name.length/2))}<a href="https://git.satr14.my.id/satr14/5th-site-expanded" target="_blank" class="group-hover:px-8 no-underline text-ctp-subtext1 group-hover:text-ctp-text">{data.name.toUpperCase()}</a>{randomStr(Math.round(charAmount-data.name.length/2))}</span>
+        <div class="inline-flex relative overflow-hidden">
+            <span class="[animation:marquee_10s_linear_infinite_reverse] whitespace-nowrap">
+                {randomStr(charAmount)}
+            </span>
+            <span class="absolute top-0 [animation:marquee2_10s_linear_infinite_reverse] whitespace-nowrap">
+                {randomStr(charAmount)}
+            </span>
+        </div><br>
     </div>
 </div>
 
@@ -70,14 +142,14 @@
     <div class="max-w-3xl mx-auto px-4 pt-2 sm:pt-4">
         <header>
             <nav class="overflow-hidden flex flex-col-reverse sm:flex-row justify-center sm:justify-between items-center sm:gap-4 text-lg max-w-full w-full px-4 overflow-y-auto text-nowrap">
-                <div class="flex justify-center gap-4">
+                <div class="flex justify-center gap-8 sm:gap-6">
                     {#each Object.entries(data.socials) as [name, url]}
                         <a href={url} target="_blank">
                           <img src="https://cdn.simpleicons.org/{name}/cdd6f4" height="16" width="16" alt={name} />
                         </a>
                     {/each}
                 </div>
-                <a href="/#abt" id="abt" class="text-center no-underline text-xl font-extrabold">&uarr;</a>
+                <a href="/#abt" id="abt" class="text-center no-underline text-xl font-extrabold" onclick={playAudio}>&uarr;</a>
                 <p class="text-center m-0 font-mono italic hidden md:block">curl https://satr14.my.id</p>
             </nav>
         </header>

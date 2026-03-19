@@ -11,14 +11,8 @@ export default {
         '-gradient-6': 'linear-gradient(-6deg, var(--tw-gradient-stops))'
       },
       animation: {
-        'scrolling-text-to-l': 'scroll 16s linear infinite',
-        'scrolling-text-to-r': 'scroll 16s linear infinite reverse',
       },
       keyframes: {
-        scroll: {
-          '0%': { transform: 'translateX(-90%)' },
-          '100%': { transform: 'translateX(90%)' },
-        },
       },
     },
   },
