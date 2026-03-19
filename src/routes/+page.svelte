@@ -64,36 +64,7 @@
     duration: 1500, easing: cubicOut
 }}></div>
 
-<svelte:head>
-    <style>
-        @property --rainbow-hue-top {
-            syntax: '<number>';
-            initial-value: 199;
-            inherits: true;
-        }
-        @property --rainbow-hue-bottom {
-            syntax: '<number>';
-            initial-value: 559;
-            inherits: true;
-        }
-        @keyframes rainbow {
-            0% { --rainbow-hue-top: 199; --rainbow-hue-bottom: 559; }
-            100% { --rainbow-hue-top: 559; --rainbow-hue-bottom: 199; }
-        }
-        @keyframes breathing {
-            0%, 100% { opacity: 0.15; }
-            50% { opacity: 0.3; }
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-100%); }
-        }
-        @keyframes marquee2 {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(0%); }
-        }
-    </style>
-</svelte:head>
+
 
 <div class="fixed top-0 left-0 w-full h-full overflow-hidden flex justify-center items-center select-none" transition:blur={{
     duration: 1000, easing: cubicOut,

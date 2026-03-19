@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @import "@catppuccin/tailwindcss/mocha.css";
 
+@property --rainbow-hue-top {
+  syntax: '<number>';
+  initial-value: 199;
+  inherits: true;
+}
+@property --rainbow-hue-bottom {
+  syntax: '<number>';
+  initial-value: 559;
+  inherits: true;
+}
+
 @font-face {
   font-family: Stray;
   font-display: swap;
@@ -17,6 +28,14 @@
   @keyframes marquee2 {
     0% { transform: translateX(100%); }
     100% { transform: translateX(0%); }
+  }
+  @keyframes rainbow {
+    0% { --rainbow-hue-top: 199; --rainbow-hue-bottom: 559; }
+    100% { --rainbow-hue-top: 559; --rainbow-hue-bottom: 199; }
+  }
+  @keyframes breathing {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.3; }
   }
 }
 
