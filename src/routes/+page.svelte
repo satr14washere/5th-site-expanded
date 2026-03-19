@@ -3,7 +3,6 @@
     import { daysUntilBirthday, getTimeIn, randomStr } from "$lib";
     import { onMount } from "svelte";
     import type { PageData } from "./$types";
-    export let data: PageData;
     import {
         blur,
         crossfade,
@@ -16,10 +15,15 @@
     import {
         cubicOut
     } from 'svelte/easing';
+    interface Props {
+        data: PageData;
+    }
+
+    let { data }: Props = $props();
 
     let days = daysUntilBirthday(data.birthday);
     let time = getTimeIn(data.timezone);
-    let charAmount = 0;
+    let charAmount = $state(0);
     let webring = $page.url.searchParams.has('webring');
 
     onMount(() => {

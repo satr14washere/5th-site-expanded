@@ -2,9 +2,14 @@
     import type { PageData } from './$types';
     import "../app.css";
     import { onMount } from 'svelte';
-    export let data: PageData;
+    interface Props {
+        data: PageData;
+        children?: import('svelte').Snippet;
+    }
 
-    let loaded = false;
+    let { data, children }: Props = $props();
+
+    let loaded = $state(false);
     onMount(() => {
         const handleVisibilityChange = () => loaded = document.visibilityState === 'visible';
         document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -19,5 +24,5 @@
 </svelte:head>
 
 {#if loaded}
-    <slot />
+    {@render children?.()}
 {/if}
