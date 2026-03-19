@@ -5,12 +5,8 @@
     import type { PageData } from "./$types";
     import {
         blur,
-        crossfade,
-        draw,
         fade,
         fly,
-        scale,
-        slide
     } from 'svelte/transition';
     import {
         cubicOut
@@ -41,6 +37,12 @@
 
     onMount(() => {
         charAmount = Math.floor(window.innerWidth / 20);
+        window.onkeydown = (e) => {
+            if (e.code === "Space") {
+                playAudio();
+                window.onkeydown = null;
+            }
+        };
     });
 </script>
 
@@ -145,7 +147,7 @@
                 <div class="flex justify-center gap-8 sm:gap-6">
                     {#each Object.entries(data.socials) as [name, url]}
                         <a href={url} target="_blank">
-                          <img src="https://cdn.simpleicons.org/{name}/cdd6f4" height="16" width="16" alt={name} />
+                          <img src="https://cdn.simpleicons.org/{name}/cdd6f4" alt={name} class="h-6 sm:h-4 aspect-square" />
                         </a>
                     {/each}
                 </div>
@@ -182,7 +184,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 py-4">
                     {#each Object.entries(data.communities) as [name, details]}
                         <a href={details.url} target="_blank" class="flex items-center gap-3 rounded-lg p-2 hover:bg-ctp-surface0">
-                            <img src={details.icon} alt={name} class="size-9 rounded-lg" />
+                            <img src={details.icon} alt={name} class="size-9 rounded-lg" loading="lazy" />
                             <div>
                                 <span class="text-sm block leading-tight text-ctp-text font-bold">{name}</span>
                                 <span class="text-xs text-ctp-subtext0">{details.role}</span>
