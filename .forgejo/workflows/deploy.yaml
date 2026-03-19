@@ -25,7 +25,7 @@ jobs:
         run: ls -la .svelte-kit/cloudflare/ || echo "BUILD OUTPUT MISSING"
         
       - name: Deploy to Cloudflare Workers
-        run: bunx wrangler deploy 
+        run: bunx wrangler deploy --config wrangler.jsonc 2>&1 
         env:
           WRANGLER_LOG: "debug"
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
