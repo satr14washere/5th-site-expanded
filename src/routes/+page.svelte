@@ -21,8 +21,8 @@
 
     let { data }: Props = $props();
 
-    let days = daysUntilBirthday(data.birthday);
-    let time = getTimeIn(data.timezone);
+    let days = $derived(daysUntilBirthday(data.birthday));
+    let time = $derived(getTimeIn(data.timezone));
     let charAmount = $state(0);
     let webring = $page.url.searchParams.has('webring');
 
