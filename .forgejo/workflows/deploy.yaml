@@ -22,8 +22,10 @@ jobs:
         
       - name: Deploy to Cloudflare Workers
         timeout-minutes: 10
-        run: bunx wrangler deploy --config wrangler.json 2>&1
+        run: |
+            ls -la
+            pwd
+            bunx wrangler deploy --config wrangler.json 2>&1
         env:
-          WRANGLER_LOG: "debug"
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
