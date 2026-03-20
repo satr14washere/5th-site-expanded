@@ -115,7 +115,7 @@
     <div class="max-w-3xl mx-auto px-4 pt-2 sm:pt-4">
         <header>
             <nav class="overflow-hidden flex flex-col-reverse sm:flex-row justify-center sm:justify-between items-center sm:gap-4 text-lg max-w-full w-full px-4 overflow-y-auto text-nowrap">
-                <div class="flex justify-center gap-8 sm:gap-6">
+                <div class="flex justify-center gap-4 sm:gap-6">
                     {#each Object.entries(data.socials) as [name, url]}
                         <a href={url} target="_blank">
                           <img src="https://cdn.simpleicons.org/{name}/cdd6f4" alt={name} class="h-6 sm:h-4 aspect-square" />
@@ -137,7 +137,7 @@
                 </p>
                 <p>{data.description}</p>
                 <p class="text-sm"><i>
-                    It's <b>{time}</b> in <b>{data.timezone}</b>.
+                    Located in <b>{data.location}</b>. It's <b>{time}</b> in <b>{data.timezone}</b>.
                 </i></p>
                 <p class="flex flex-wrap gap-2 text-sm">
                     {#each data.skills as skill}
