@@ -79,8 +79,6 @@ export default {
         protonmail: "mailto:admin@satr14.my.id",
         github: "https://github.com/satr14washere",
         discord: "https://discord.com/users/882595027132493864",
-        reddit: "https://reddit.com/u/Frequent_Outside_741",
-        steam: "https://steamcommunity.com/id/satr14",
         namemc: "https://namemc.com/profile/satr14.1"
     },
 }
