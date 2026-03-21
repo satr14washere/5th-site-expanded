@@ -1,6 +1,6 @@
 <script lang="ts">
     import { page } from "$app/stores";
-    import { daysUntilBirthday, getTimeIn, randomStr } from "$lib";
+    import { getTimeIn, randomStr } from "$lib";
     import { onMount } from "svelte";
     import type { PageData } from "./$types";
     import {
