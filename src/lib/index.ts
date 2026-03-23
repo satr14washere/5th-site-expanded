@@ -54,7 +54,7 @@ export default {
     timezone: "Asia/Jakarta",
     location: "Indonesia",
     links: {
-        "git": "https://git.satr14.my.id",
+        "forgejo.git": "https://git.satr14.my.id",
         "fetch.sh": "https://fetch.satr14.my.id",
         "flake.nix": "https://flake.satr14.my.id",
     },
