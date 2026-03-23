@@ -54,7 +54,7 @@
 
 {#if showNotification}
     <div class="z-50 fixed top-6 right-6 left-6 flex justify-center items-center">
-        <div class="flex items-center gap-3 bg-ctp-surface0 text-ctp-text px-4 py-3 rounded-xl shadow-lg" transition:fly={{ y: 20, duration: 300, easing: cubicOut }}>
+        <div class="flex items-center gap-3 bg-ctp-surface0 text-ctp-text px-4 py-3 rounded-xl shadow-lg border border-ctp-sky" transition:fly={{ y: 20, duration: 300, easing: cubicOut }}>
             <span class="text-lg">♪</span>
             <div class="text-sm">
                 <p class="m-0 font-medium">Now Playing</p>
