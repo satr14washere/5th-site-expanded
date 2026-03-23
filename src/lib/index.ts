@@ -32,9 +32,9 @@ export function timeAgo(unixTimestamp: number): string {
     return Math.floor(seconds) + " seconds ago";
 }
 
-export function randomStr(length: number): string {
+export function randomStr(length: number, withNumbers = true): string {
     let result = '';
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789'.toUpperCase();
+    const characters = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ' + (withNumbers ? '123456789' : '')).toUpperCase();
     const charactersLength = characters.length;
     let counter = 0;
     while (counter < length) {
