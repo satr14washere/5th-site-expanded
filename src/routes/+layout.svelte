@@ -19,8 +19,8 @@
 
 <svelte:head>
     <title>{data.title}</title>
-    <meta name="description" content={data.description} />
-    <meta name="theme-color" content="#00e1ff" />
+    <meta name="description" content={data.quote} />
+    <!-- <meta name="theme-color" content="#00e1ff" /> -->
 </svelte:head>
 
 {#if loaded}
