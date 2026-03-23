@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { page } from "$app/stores";
     import { getTimeIn, randomStr } from "$lib";
     import { onMount } from "svelte";
     import type { PageData } from "./$types";
@@ -19,8 +18,6 @@
 
     let time = $derived(getTimeIn(data.timezone));
     let charAmount = $state(0);
-
-    let webring = $page.url.searchParams.has('webring');
 
     let audio: HTMLAudioElement;
     let showNotification = $state(false);
@@ -48,9 +45,18 @@
 
 <audio bind:this={audio} src="/hk-white-palace-ost.mp3" loop></audio>
 
-<a href="https://hackclub.com" target="_blank" class="z-50 fixed top-24 sm:top-8 md:top-4 -left-2 hover:left-0">
+<a href="https://hackclub.com" target="_blank" class="z-50 fixed top-24 sm:top-12 md:top-4 -left-2 hover:left-0">
   <img src="https://assets.hackclub.com/flag-orpheus-left.svg" alt="Hack Club Orpheus Flag" class="h-16">
 </a>
+
+<nav class="flex flex-col gap-0 items-center z-50 fixed top-24 sm:top-12 md:top-4 right-0 font-semibold bg-ctp-surface0 pr-4 pl-2 py-1 rounded-l-xl border-y border-l border-ctp-sky">
+    <a href="https://nixwebr.ing" class="no-underline text-sm text-ctp-text">nix-webring</a>
+    <div class="text-2xl">
+        <a href="https://nixwebr.ing/prev/satr14" class="no-underline text-ctp-text">&larr;</a>
+        <a href="https://nixwebr.ing/rand" class="no-underline text-ctp-text">&#9858;</a>
+        <a href="https://nixwebr.ing/next/satr14" class="no-underline text-ctp-text">&rarr;</a>
+    </div>
+</nav>
 
 {#if showNotification}
     <div class="z-50 fixed top-6 right-6 left-6 flex justify-center items-center">
@@ -96,18 +102,11 @@
 
 <div class="fixed top-0 left-0 w-full text-base flex justify-center items-center">
     <nav class="py-2 px-4 backdrop-blur rounded-t-3xl border-ctp-base hover:border-ctp-sky">
-        {#if webring}
-            <a href="https://nixwebr.ing" class="no-underline">nixwebr.ing:</a>
-            <a href="https://nixwebr.ing/prev/satr14" class="no-underline">&larr;</a>
-            <a href="https://nixwebr.ing/rand" class="no-underline">?</a>
-            <a href="https://nixwebr.ing/next/satr14" class="no-underline">&rarr;</a>
-        {:else}
-            <p class="animate-pulse italic text-base text-center">
-                <span>"{data.quote}"</span><br>
-                <span class="hidden sm:block">Press [Space] to continue.</span>
-                <span class="sm:hidden">Scroll to continue.</span>
-            </p>
-        {/if}
+        <p class="animate-pulse italic text-base text-center">
+            <span>"{data.quote}"</span><br>
+            <span class="hidden sm:block">Press [Space] to continue.</span>
+            <span class="sm:hidden">Scroll to continue.</span>
+        </p>
     </nav>
 </div>
     
