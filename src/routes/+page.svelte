@@ -79,24 +79,34 @@
 <div class="fixed top-0 left-0 w-full h-full overflow-hidden flex justify-center items-center select-none" transition:blur={{
     duration: 1000, easing: cubicOut,
 }}>
-    <div class="font-[Stray,monospace] group whitespace-nowrap text-center text-5xl my-4 cursor-default -rotate-6 leading-10 text-ctp-overlay1 hover:text-ctp-base">
-        <div class="inline-flex relative overflow-hidden">
-            <span class="animate-[marquee_10s_linear_infinite] whitespace-nowrap">
-                {randomStr(charAmount)}
-            </span>
-            <span class="absolute top-0 animate-[marquee2_10s_linear_infinite] whitespace-nowrap">
-                {randomStr(charAmount)}
-            </span>
-        </div><br>
-        <span class="block">{randomStr(Math.round(charAmount-data.name.length/2))}<a href="https://git.satr14.my.id/satr14/5th-site-expanded" target="_blank" class="group-hover:px-8 no-underline text-ctp-subtext1 group-hover:text-ctp-text">{data.name.toUpperCase()}</a>{randomStr(Math.round(charAmount-data.name.length/2))}</span>
-        <div class="inline-flex relative overflow-hidden">
-            <span class="animate-[marquee_10s_linear_infinite_reverse] whitespace-nowrap">
-                {randomStr(charAmount)}
-            </span>
-            <span class="absolute top-0 animate-[marquee2_10s_linear_infinite_reverse] whitespace-nowrap">
-                {randomStr(charAmount)}
-            </span>
-        </div><br>
+    <div class="font-[Stray,monospace] group whitespace-nowrap text-center text-5xl my-4 cursor-default -rotate-6 leading-10 text-ctp-overlay1 hover:text-ctp-surface2">
+        {#each Array(10) as _,i}
+            <div class="inline-flex relative overflow-hidden">
+                <span class="whitespace-nowrap" style="opacity: {i*0.1}; animation: marquee {5 + i * 3}s linear infinite;">
+                    {randomStr(charAmount)}
+                </span>
+                <span class="absolute top-0 whitespace-nowrap" style="opacity: {i*0.1}; animation: marquee2 {5 + i * 3}s linear infinite;">
+                    {randomStr(charAmount)}
+                </span>
+            </div><br>
+        {/each}
+        <span class="block">
+            {randomStr(Math.round(charAmount-data.name.length/2), false)}
+            <a href="https://git.satr14.my.id/satr14/5th-site-expanded" target="_blank" class="no-underline text-ctp-subtext1 group-hover:text-ctp-text">
+                {data.name.toUpperCase()}
+            </a>
+            {randomStr(Math.round(charAmount-data.name.length/2), false)}
+        </span>
+        {#each Array(9) as _,i}
+            <div class="inline-flex relative overflow-hidden">
+                <span class="whitespace-nowrap" style="opacity: {(9-i)*0.1}; animation: marquee {26 - i * 3}s linear infinite reverse;">
+                    {randomStr(charAmount)}
+                </span>
+                <span class="absolute top-0 whitespace-nowrap" style="opacity: {(9-i)*0.1}; animation: marquee2 {26 - i * 3}s linear infinite reverse;">
+                    {randomStr(charAmount)}
+                </span>
+            </div><br>
+        {/each}
     </div>
 </div>
 
