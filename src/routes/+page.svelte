@@ -52,9 +52,9 @@
 <nav class="flex flex-col gap-0 items-center z-50 fixed top-24 sm:top-12 md:top-4 right-0 font-semibold bg-ctp-surface0 pr-4 pl-2 py-1 rounded-l-xl border-y border-l border-ctp-sky">
     <a href="https://nixwebr.ing" class="no-underline text-sm text-ctp-text">nix-webring</a>
     <div class="text-2xl">
-        <a href="https://nixwebr.ing/prev/satr14" class="no-underline text-ctp-text">&larr;</a>
+        <a href="https://nixwebr.ing/prev/satr14" class="no-underline text-ctp-text">&lt;</a>
         <a href="https://nixwebr.ing/rand" class="no-underline text-ctp-text">&#9858;</a>
-        <a href="https://nixwebr.ing/next/satr14" class="no-underline text-ctp-text">&rarr;</a>
+        <a href="https://nixwebr.ing/next/satr14" class="no-underline text-ctp-text">&gt;</a>
     </div>
 </nav>
 
