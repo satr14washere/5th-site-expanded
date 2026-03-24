@@ -48,7 +48,7 @@ export default {
     title: "satr14's site",
     quote: "sometimes you just gotta implement it yourself",
     name: "satr14",
-    roles: ["Web Developer", "Sysadmin", "Hobbyist", "Student"],
+    roles: ["Web Dev", "Sys Admin", "Hobbyist", "Student"],
     description: "Welcome to my over-engineered corner of the Internet! I'm Satria, Im a self-taught hobbyist web developer and homelaber sysadmin from Indonesia. I've been programming since 2021 and spend my free time working on personal projects and experimenting with new technologies.",
     skills: ["Tailwind", "SvelteKit", "TypeScript", "Bun", "Express", "PocketBase", "Linux", "Nginx", "Docker", "Git", "Bash", "Proxmox", "Nix"],
     timezone: "Asia/Jakarta",
